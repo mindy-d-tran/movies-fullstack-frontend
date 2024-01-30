@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import MoviesList from "./components/MoviesList";
+import Form from "./components/Form";
+import MovieDisplay from "./components/MovieDisplay";
 
 function App() {
 
@@ -23,8 +25,10 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Movies Full stack app</h1>
-      <MoviesList movies={movies}/>
+      {/* <h1>Movies Full stack app</h1>
+      <MoviesList movies={movies}/> */}
+      <Form/>
+      <MovieDisplay/>
     </div>
   );
 }
