@@ -9,7 +9,9 @@ function App() {
   useEffect(() => {
     //connect to backend
     const fetchData = async () => {
-      console.log("fetching data...");
+      const res = await fetch('http://localhost:4000/api/movies');
+      const data = await res.json();
+      console.log(data);
     };
     fetchData();
   }, []);
