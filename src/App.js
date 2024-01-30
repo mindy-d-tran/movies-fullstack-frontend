@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import "./App.css";
 
 function App() {
+  /**useEffect
+   * 1st param = callback function
+   * 2nd param = array of dependecies (optional) will use it 99.99% of time
+   */
+  useEffect(() => {
+    //connect to backend
+    const fetchData = async () => {
+      console.log("fetching data...");
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Movies Full stack app</h1>
     </div>
   );
 }
