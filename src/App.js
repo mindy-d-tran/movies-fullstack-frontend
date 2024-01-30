@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import MoviesList from "./components/MoviesList";
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
   return (
     <div className="App">
       <h1>Movies Full stack app</h1>
+      <MoviesList movies={movies}/>
     </div>
   );
 }
