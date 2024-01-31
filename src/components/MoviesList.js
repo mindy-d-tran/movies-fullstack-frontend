@@ -1,4 +1,5 @@
 import MovieItem from "./MovieItem";
+import Spinner from "react-bootstrap/Spinner";
 
 function MoviesList({ movies }) {
   return (
@@ -8,7 +9,7 @@ function MoviesList({ movies }) {
         {movies.length ? (
           movies.map((movie) => <MovieItem key={movie._id} movie={movie} />)
         ) : (
-          <h2>Loading movies</h2>
+          <Spinner animation="border"/>
         )}
       </section>
     </div>
