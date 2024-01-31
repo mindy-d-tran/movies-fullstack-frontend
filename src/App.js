@@ -3,9 +3,10 @@ import "./App.css";
 import MoviesList from "./components/MoviesList";
 import { Route, Routes } from "react-router-dom";
 import MainPage from "./pages/MainPage";
+import NavBar from "./components/NavBar";
 
 function App() {
-  const [movies, setMovies] = useState(null);
+  const [movies, setMovies] = useState([]);
 
   /**useEffect
    * 1st param = callback function
@@ -26,7 +27,7 @@ function App() {
   return (
     <div className="App">
       <h1>Movies Full stack app</h1>
-
+      <NavBar />
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/movies" element={<MoviesList movies={movies} />} />
