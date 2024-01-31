@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
-import "./App.css";
-import MoviesList from "./components/MoviesList";
 import { Route, Routes } from "react-router-dom";
+
+import "./App.css";
+
 import MainPage from "./pages/MainPage";
+
 import NavBar from "./components/NavBar";
+import MovieDetail from "./components/MovieDetails";
+import MoviesList from "./components/MoviesList";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -31,6 +35,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/movies" element={<MoviesList movies={movies} />} />
+        <Route path="/movies/:id" element={<MovieDetail/>} />
       </Routes>
     </div>
   );
