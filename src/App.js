@@ -1,21 +1,12 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import MoviesList from "./components/MoviesList";
-
+import { Route, Routes } from "react-router-dom";
+import MainPage from "./pages/MainPage";
 
 function App() {
   const [movies, setMovies] = useState(null);
 
-
-  // const getMovie = async (searchTerm) => {
-  //   //make fetch response and store response
-  //   const res = await fetch(`${url}&t=${searchTerm}`);
-  //   //Parsing JSON res into JS obj
-  //   const data = await res.json();
-  //   console.log(data);
-  //   // setting Movie state to recieved data
-  //   setMovies(data);
-  // };
   /**useEffect
    * 1st param = callback function
    * 2nd param = array of dependecies (optional) will use it 99.99% of time
@@ -35,8 +26,11 @@ function App() {
   return (
     <div className="App">
       <h1>Movies Full stack app</h1>
-      <MoviesList movies={movies}/>
 
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/movies" element={<MoviesList movies={movies} />} />
+      </Routes>
     </div>
   );
 }
