@@ -3,6 +3,9 @@ import { Route, Routes } from "react-router-dom";
 
 import "./App.css";
 
+//context
+import { ThemeContext } from "./context/ThemeContext";
+
 import MainPage from "./pages/MainPage";
 
 import NavBar from "./components/NavBar";
@@ -11,6 +14,7 @@ import MoviesList from "./components/MoviesList";
 
 function App() {
   const [movies, setMovies] = useState([]);
+  const [theme, setTheme] = useState("light");
 
   /**useEffect
    * 1st param = callback function
@@ -29,15 +33,17 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <h1>Movies Full stack app</h1>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/movies" element={<MoviesList movies={movies} />} />
-        <Route path="/movies/:id" element={<MovieDetail/>} />
-      </Routes>
-    </div>
+    <ThemeContext.Provider value={{theme, setTheme}}>
+      <div className="App">
+        <h1>Movies Full stack app</h1>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/movies" element={<MoviesList movies={movies} />} />
+          <Route path="/movies/:id" element={<MovieDetail />} />
+        </Routes>
+      </div>
+    </ThemeContext.Provider>
   );
 }
 
