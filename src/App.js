@@ -16,7 +16,7 @@ import MoviesList from "./components/MoviesList";
 function App() {
   const [movies, setMovies] = useState([]);
   const [theme, setTheme] = useState("light");
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
 
   /**useEffect
    * 1st param = callback function
@@ -44,7 +44,7 @@ function App() {
             <>
               <NavBar />
               <Routes>
-                <Route path="/" element={<MainPage />} />
+                <Route path="/about" element={<h3>about</h3>} />
                 <Route
                   path="/movies"
                   element={<MoviesList movies={movies} />}
@@ -55,7 +55,7 @@ function App() {
           ) : (
             <MainPage />
           )}
-          
+
         </div>
       </ThemeContext.Provider>
     </UserContext.Provider>
