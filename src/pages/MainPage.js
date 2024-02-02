@@ -1,11 +1,12 @@
 import { useRef, useState } from "react";
+import axios from 'axios';
 
 function MainPage() {
   const emailInputRef = useRef(null);
   const passwordInputRef = useRef(null);
   const [showSignUp, setShowSignUp] = useState(false);
 
-  const handleSignIn = (e) => {
+  const handleSignIn = async (e) => {
     e.preventDefault();
     console.log(emailInputRef.current.value);
     console.log(passwordInputRef.current.value);
@@ -19,8 +20,15 @@ function MainPage() {
       passwordInputRef.current.focus();
       return;
     }
+
+    // make POST req to backend
+    const res = await axios.post('http://localhost:4000/api/users/signin',{
+      email: emailInputRef.current.value,
+      passwordInputRef: passwordInputRef.current.value
+    });
+    console.log(res.data);
   };
-  const handleSignUp = (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
     console.log(emailInputRef.current.value);
     console.log(passwordInputRef.current.value);
@@ -34,6 +42,12 @@ function MainPage() {
       passwordInputRef.current.focus();
       return;
     }
+    // make POST req to backend
+    const res = await axios.post('http://localhost:4000/api/users/signup',{
+      email: emailInputRef.current.value,
+      passwordInputRef: passwordInputRef.current.value
+    });
+    console.log(res.data);
   };
 
   return (
