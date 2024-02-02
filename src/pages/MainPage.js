@@ -1,7 +1,11 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import axios from 'axios';
+import { UserContext } from "../context/UserContext";
 
 function MainPage() {
+  const userCtx = useContext(UserContext);
+  const {setUser} = userCtx;
+
   const emailInputRef = useRef(null);
   const passwordInputRef = useRef(null);
   const [showSignUp, setShowSignUp] = useState(false);
@@ -27,6 +31,7 @@ function MainPage() {
       passwordInputRef: passwordInputRef.current.value
     });
     console.log(res.data);
+    setUser(res.data);
   };
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -48,6 +53,7 @@ function MainPage() {
       passwordInputRef: passwordInputRef.current.value
     });
     console.log(res.data);
+    setUser(res.data);
   };
 
   return (
